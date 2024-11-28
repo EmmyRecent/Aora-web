@@ -20,7 +20,7 @@ ReactDOM.createRoot(root).render(
           <Route path="/" element={<RootLayout />}>
             <Route index element={<Home />} />
             <Route path="privacypolicy" element={<Privacy />} />
-            <Route path="em" />
+            <Route path="verify" />
 
             <Route path="*" element={<NotFound />} />
           </Route>
