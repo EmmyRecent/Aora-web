@@ -1,9 +1,29 @@
+import { useEffect, useRef } from "react";
 import { demo1, demo2, demo3, line } from "../assets/images";
 import Download from "../components/Download";
 import FeaturesCard from "../components/FeaturesCard";
 import { features } from "../constants";
 
 const Home = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const centerImageRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    if (containerRef.current && centerImageRef.current) {
+      const container = containerRef.current;
+      const centerImage = centerImageRef.current;
+
+      const containerWidth = container.offsetWidth;
+      const centerImageOffset = centerImage.offsetLeft;
+      const centerImageWidth = centerImage.offsetWidth;
+
+      const scrollPosition =
+        centerImageOffset - (containerWidth / 2 - centerImageWidth / 2);
+
+      container.scrollLeft = scrollPosition;
+    }
+  }, []);
+
   return (
     <>
       <section className="flex items-center justify-center pt-[6.3rem]">
@@ -28,7 +48,10 @@ const Home = () => {
             </h2>
           </div>
 
-          <div className="flex w-full items-center justify-center">
+          <div
+            className="scrollbar-hide flex w-full items-center justify-start overflow-x-auto lg:justify-center"
+            ref={containerRef}
+          >
             <img
               src={demo1}
               className="h-auto w-full max-w-[270px]"
@@ -42,6 +65,7 @@ const Home = () => {
               alt="demo3 image"
               width={153.93}
               height={283.59}
+              ref={centerImageRef} // Reference the center image
             />
             <img
               src={demo2}
