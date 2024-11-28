@@ -16,14 +16,60 @@
     scroll-behavior: smooth;
   }
 
+  h1 {
+    font-size: clamp(
+      1.5rem,
+      0.9210199004975124rem + 3.150912106135987vw,
+      3.875rem
+    );
+  }
+
+  h2 {
+    font-size: clamp(
+      1rem,
+      0.8781094527363185rem + 0.6633499170812603vw,
+      1.5rem
+    );
+  }
+
+  h3 {
+    font-size: clamp(
+      1.5rem,
+      1.256218905472637rem + 1.3266998341625207vw,
+      2.5rem
+    );
+  }
+
   body {
-    @apply font-poppins overflow-x-hidden;
+    @apply font-poppins bg-primaryColor overflow-x-hidden text-white;
+  }
+
+  section {
+    @apply min-h-screen py-8 md:py-16;
   }
 }
 
 @layer components {
   .wrapper {
-    width: min(1266px, calc(100% -32px));
+    width: min(1197px, calc(100% - 32px));
     margin-inline: auto;
+  }
+}
+
+@layer utilities {
+  .privacy {
+    @apply text-body relative cursor-pointer font-bold transition-colors duration-200 ease-in-out md:text-lg;
+  }
+
+  .privacy:hover {
+    @apply text-secondaryColor;
+  }
+
+  .privacy::before {
+    @apply bg-secondaryColor absolute bottom-0 left-0 h-[2px] w-full content-[""];
+  }
+
+  .headline {
+    @apply bg-gradient-to-r from-[#FF8C00] to-[#FFA300] bg-clip-text text-center font-bold capitalize text-transparent;
   }
 }

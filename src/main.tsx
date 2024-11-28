@@ -1,12 +1,23 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
-import App from "./App.tsx";
+import { StrictMode } from "react";
+import RootLayout from "./layout/RootLayout";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
-// Routes should be here.
+const root = document.getElementById("root") as HTMLElement;
 
-createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(root).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<Home />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </StrictMode>,
 );
