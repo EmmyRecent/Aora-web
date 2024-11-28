@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { submitForm } from "../lib/appwrite";
+import { useToast } from "../context/ToastProvider";
 
 const InputField = () => {
+  const { showToast } = useToast();
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,12 +19,25 @@ const InputField = () => {
     if (inputValue) {
       try {
         await submitForm(inputValue);
-        console.log("Form submitted successfully!");
+        showToast({
+          message: "Thank you! You'll be notified when Aora is available",
+          type: "error",
+        });
       } catch (error) {
         console.error("Error submitting form:", error);
+        showToast({
+          message: "Error submitting form, please try again later!",
+          type: "error",
+        });
       } finally {
         setInputValue("");
       }
+    } else {
+      // DO something here.
+      showToast({
+        message: "Please fill in all the details",
+        type: "error",
+      });
     }
   };
 
