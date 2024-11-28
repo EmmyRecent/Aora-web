@@ -93,4 +93,12 @@
   .headline {
     @apply bg-gradient-to-r from-[#FF8C00] to-[#FFA300] bg-clip-text text-center font-bold capitalize text-transparent;
   }
+
+  .title {
+    @apply my-6 font-bold;
+  }
+
+  .subtitle {
+    @apply text-body;
+  }
 }
