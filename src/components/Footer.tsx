@@ -16,7 +16,7 @@ const Footer = () => {
             | All rights reserved
           </p>
           <p className="text-secondaryColor caption-top">
-            <Link to={"/termsandcondition"}>Terms & conditions</Link>
+            <Link to={"/terms&condition"}>Terms & conditions</Link>
           </p>
         </div>
       </div>

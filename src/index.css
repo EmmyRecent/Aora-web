@@ -47,6 +47,14 @@
   section {
     @apply min-h-screen py-8 md:py-16;
   }
+
+  input {
+    @apply h-auto;
+  }
+
+  input:focus {
+    @apply outline-none;
+  }
 }
 
 @layer components {

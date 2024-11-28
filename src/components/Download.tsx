@@ -1,13 +1,24 @@
+import { useNavigate } from "react-router";
 import { ios, android } from "../assets/icons";
 
 type DownloadProps = {
   platform: "ios" | "android";
   text: string;
+  link: string;
 };
 
-const Download = ({ platform, text }: DownloadProps) => {
+const Download = ({ platform, text, link }: DownloadProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = (): void => {
+    navigate(`download/${link}`);
+  };
+
   return (
-    <div className="bg-tertiaryColor rounded-round inline-flex h-auto cursor-pointer items-center gap-4 px-4 py-5 shadow-2xl">
+    <div
+      onClick={handleClick}
+      className="bg-tertiaryColor rounded-round inline-flex h-auto cursor-pointer items-center gap-4 px-4 py-5 shadow-2xl"
+    >
       <img
         src={platform === "ios" ? ios : android}
         className="ll:w-[28px] h-auto w-[24px] sm:w-[34px] md:w-[37px]"

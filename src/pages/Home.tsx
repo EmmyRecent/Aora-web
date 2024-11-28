@@ -53,8 +53,8 @@ const Home = () => {
           </div>
 
           <div className="ll:flex-row flex flex-col items-center justify-center gap-4">
-            <Download platform="ios" text="App store" />
-            <Download platform="android" text="Play store" />
+            <Download platform="ios" text="App store" link="appstore" />
+            <Download platform="android" text="Play store" link="playstore" />
           </div>
         </div>
       </section>

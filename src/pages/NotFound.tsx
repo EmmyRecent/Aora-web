@@ -1,10 +1,6 @@
 import { Link } from "react-router";
 
 const NotFound = () => {
-  const error = "";
-
-  console.log("Error:", error);
-
   return (
     <section className="flex items-center justify-center">
       <div className="wrapper flex flex-col gap-2 text-center">
