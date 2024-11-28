@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Platform from "./pages/Platform";
 import DownloadLayout from "./layout/DownloadLayout";
+import Privacy from "./pages/Privacy";
 
 const root = document.getElementById("root") as HTMLElement;
 
@@ -16,6 +17,7 @@ ReactDOM.createRoot(root).render(
       <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
+          <Route path="privacypolicy" element={<Privacy />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
