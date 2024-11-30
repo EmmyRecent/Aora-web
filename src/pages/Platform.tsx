@@ -24,7 +24,7 @@ const Platform = () => {
 
               <InputField />
 
-              <p className="md:text-body text-textColor text-small">
+              <p className="text-small text-textColor md:text-body">
                 -_Notify me when App is launched_-
               </p>
             </div>
