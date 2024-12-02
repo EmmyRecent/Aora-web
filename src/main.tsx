@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy";
 import ToastProvider from "./context/ToastProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import Verify from "./pages/Verify";
 
 const root = document.getElementById("root") as HTMLElement;
 
@@ -22,7 +23,7 @@ ReactDOM.createRoot(root).render(
           <Route path="/" element={<RootLayout />}>
             <Route index element={<Home />} />
             <Route path="privacypolicy" element={<Privacy />} />
-            <Route path="verify" />
+            <Route path="verify" element={<Verify />} />
 
             <Route path="*" element={<NotFound />} />
           </Route>
