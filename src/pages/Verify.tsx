@@ -5,12 +5,13 @@ const Verify = () => {
     // Extract the secret token from the URL query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const secret = urlParams.get("secret");
+    const userId = urlParams.get("userId");
 
     console.log("Secret:", secret);
 
     if (secret) {
       // Redirect to the Expo app using a deep link
-      const appLink = `aora://verify?secret=${secret}`;
+      const appLink = `aora://verify?userId=${userId}&secret=${secret}`;
       window.location.href = appLink;
     } else {
       console.error("Secret token is missing in the URL!");
